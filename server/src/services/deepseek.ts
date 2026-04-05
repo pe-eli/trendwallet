@@ -20,14 +20,14 @@ export async function generateInsights(
     )
     .join("\n");
 
-  const prompt = `Analyze this crypto portfolio and generate concise insights for a user. Focus on trends, risks, and opportunities.
+  const prompt = `Analise este portfolio de criptomoedas e gere insights concisos para o usuario. Foque em tendencias, riscos e oportunidades.
 
-Portfolio total value: $${totalValue.toFixed(2)}
+Valor total do portfolio: $${totalValue.toFixed(2)}
 
-Holdings:
+Posicoes:
 ${portfolioSummary}
 
-Provide a brief, actionable analysis in 3-5 sentences. Be specific about which tokens are driving gains or losses. Mention any notable market trends.`;
+Responda em portugues do Brasil, com linguagem clara e objetiva, em 3-5 frases. Seja especifico sobre quais tokens estao puxando ganhos ou perdas. Mencione tendencias de mercado relevantes.`;
 
   const { data } = await axios.post(
     `${DEEPSEEK_BASE_URL}/v1/chat/completions`,
@@ -37,7 +37,7 @@ Provide a brief, actionable analysis in 3-5 sentences. Be specific about which t
         {
           role: "system",
           content:
-            "You are a crypto portfolio analyst. Provide concise, data-driven insights about the user's holdings. Be direct and actionable. Do not include disclaimers about financial advice.",
+            "Voce e um analista de portfolio cripto. Responda sempre em portugues do Brasil. Forneca insights curtos, orientados por dados, diretos e acionaveis sobre as posicoes do usuario. Nao inclua avisos genericos sobre aconselhamento financeiro.",
         },
         {
           role: "user",
