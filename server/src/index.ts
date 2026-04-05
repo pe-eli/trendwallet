@@ -11,8 +11,8 @@ const PORT = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());
 
-app.use("/prices", pricesRoutes);
-app.use("/ai-insights", aiInsightsRoutes);
+app.use("/api/prices", pricesRoutes);
+app.use("/api/ai-insights", aiInsightsRoutes);
 
 app.get("/health", (_req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });

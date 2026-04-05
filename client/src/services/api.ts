@@ -1,8 +1,11 @@
 import axios from "axios";
 import { TokenPrice, PriceHistoryPoint, AIInsightsResponse, PortfolioToken } from "../types";
 
+const rawApiBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim();
+const apiBaseUrl = rawApiBaseUrl ? rawApiBaseUrl.replace(/\/+$/, "") : "/api";
+
 const api = axios.create({
-  baseURL: "/api",
+  baseURL: apiBaseUrl,
 });
 
 export async function fetchPrices(): Promise<TokenPrice[]> {
