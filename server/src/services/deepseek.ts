@@ -27,7 +27,8 @@ Valor total do portfolio: $${totalValue.toFixed(2)}
 Posicoes:
 ${portfolioSummary}
 
-Responda em portugues do Brasil, com linguagem clara e objetiva, em 3-5 frases. Seja especifico sobre quais tokens estao puxando ganhos ou perdas. Mencione tendencias de mercado relevantes.`;
+Responda em portugues do Brasil, com linguagem clara e objetiva, em 3-5 frases. Seja especifico sobre quais tokens estao puxando ganhos ou perdas. Mencione tendencias de mercado relevantes.
+Não use asteriscos ou markdowns. Não inclua avisos genericos sobre aconselhamento financeiro.`;
 
   const { data } = await axios.post(
     `${DEEPSEEK_BASE_URL}/v1/chat/completions`,
