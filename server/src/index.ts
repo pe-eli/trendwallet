@@ -14,6 +14,10 @@ app.use(express.json());
 app.use("/api/prices", pricesRoutes);
 app.use("/api/ai-insights", aiInsightsRoutes);
 
+// Backward-compatible routes for older frontend builds/env configs.
+app.use("/prices", pricesRoutes);
+app.use("/ai-insights", aiInsightsRoutes);
+
 app.get("/health", (_req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
 });
